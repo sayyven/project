@@ -37,6 +37,11 @@ VN2 = {
       address_space = "10.0.0.0/24"
 }
 
+VN4 = {
+    name = "VN4"
+    address_space = "10.12.0.0/22"
+
+  }
 subnet22 = [ {
   name = "subnet1"
   address_prefix = "10.0.0.0/24"
@@ -70,8 +75,26 @@ subnet33 = [
 
 
 ]
+
+Subnet4 = [
+    {
+      name = "subnet7"
+      address_prefixes = "10.12.0.0/22"
+
+    }
+
+    {
+      name = "subnet8"
+      address_prefixes = "10.12.0.1/22"
+
+    }
+
+  ]
 }
 
 //below are the resources for third test
+
+
+
 
 
