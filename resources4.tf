@@ -1,20 +1,20 @@
 resource "azurerm_resource_group" "Rg4" {
-  name     = locals.rg_name
+  name     = local.rg_name
   location = local.location
 }
 
 resource "azurerm_virtual_network" "VN4" {
   name                = local.VN4.name
-  address_space       = [local.VN4.address_prefixes]
+  address_space       = [local.VN4.address_space]
   location            = local.location
-  resource_group_name = alocal.rg_name
+  resource_group_name = local.rg_name
 }
 
 resource "azurerm_subnet" "subnet7" {
-  name                 = local.Subnet4.name[0]
+  name                 = local.Subnet4[0].name
   resource_group_name  = local.rg_name
   virtual_network_name = local.VN4.name
-  address_prefixes     = [local.Subnet4.name[0]]
+  address_prefixes     = [local.Subnet4[0].name]
 }
 
 resource "azurerm_public_ip" "pubip4" {
@@ -28,7 +28,7 @@ resource "azurerm_public_ip" "pubip4" {
 resource "azurerm_network_interface" "nic4" {
   name                = "nic4"
   location            = local.location
-  resource_group_name = local.rg_name
+  resource_group_name = local.rg3
 
   ip_configuration {
     name                          = "internal"
@@ -41,7 +41,7 @@ resource "azurerm_network_interface" "nic4" {
 resource "azurerm_windows_virtual_machine" "VM4" {
   name                = "VM4"
   resource_group_name = local.rg_name
-  location            = local.rg_name
+  location            = local.location
   size                = "Standard_D2s_v3"
   admin_username      = "adminuser"
   admin_password      = "P@$$w0rd1234!"
@@ -66,7 +66,7 @@ resource "azurerm_windows_virtual_machine" "VM4" {
 resource "azurerm_network_security_group" "nsg4" {
   name                = "nsg4"
   resource_group_name = local.rg_name
-  location            = local.rg_name
+  location            = local.location
 
   security_rule {
     name                       = "AllowRDP"
@@ -79,7 +79,7 @@ resource "azurerm_network_security_group" "nsg4" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
-
+}
 
   resource "azurerm_subnet_network_security_group_association" "nsgasso4" {
   subnet_id                 = azurerm_subnet.subnet7.id

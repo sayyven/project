@@ -61,8 +61,7 @@ vn3 = {
   address_space = "10.12.0.0/24"
 }
 
-subnet33 = [
-  {
+subnet33 = [ {
     name = "subnet5"
     address_prefixes = "10.12.0.0/24"
   },
@@ -81,7 +80,7 @@ Subnet4 = [
       name = "subnet7"
       address_prefixes = "10.12.0.0/22"
 
-    }
+    },
 
     {
       name = "subnet8"

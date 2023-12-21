@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "rgg" {
   name     = local.rg_name
-  location = "East US"
+  location = var.subs
 }
 
 

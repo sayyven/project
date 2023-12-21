@@ -7,3 +7,6 @@ terraform/
 terraform-provider-azurerm_v3.38.0_x5.exe
 
 resources3.tf
+kubectl.exe
+helm.exe
+.\sayan
